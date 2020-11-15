@@ -17,15 +17,6 @@ namespace MatchGame
             SetUpGame();
         }
 
-        //Public identifiers
-        //Private
-        //Internal
-        //Protected
-        //Sealed
-        //Abstract
-        //HackerRank
-        //LeetCode, Codility, Codewar
-
         private void SetUpGame()
         {
             List<string> animalEmoji = new List<string>()
