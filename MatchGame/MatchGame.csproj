@@ -6,4 +6,14 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Microsoft-logo.png" />
+    <None Remove="TheBulbLogo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Microsoft-logo.png" />
+    <Resource Include="TheBulbLogo.png" />
+  </ItemGroup>
+
 </Project>
