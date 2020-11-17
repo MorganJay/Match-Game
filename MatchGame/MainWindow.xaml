@@ -53,7 +53,7 @@
                    Text="?" TextWrapping="NoWrap" VerticalAlignment="Top" FontSize="36" MouseDown="TextBlock_MouseDown" Grid.Column="1" Height="48"/>
         <TextBlock Grid.Column="3" HorizontalAlignment="Center" Grid.Row="3" Text="?" 
                    TextWrapping="NoWrap" VerticalAlignment="Center" FontSize="36" MouseDown="TextBlock_MouseDown" Height="48" Margin="10,5,0,0"/>
-        <TextBlock x:Name="timeTextBlock" Grid.ColumnSpan="5" Grid.Row="4" Text="Elapsed Time" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" MouseDown="timeTextBlock_MouseDown" Width="380" TextAlignment="Center">
+        <TextBlock x:Name="TimeTextBlock" Grid.ColumnSpan="5" Grid.Row="4" Text="Elapsed Time" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" MouseDown="TimeTextBlock_MouseDown" Width="380" TextAlignment="Center">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1"/>
@@ -63,5 +63,6 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
+        <Button x:Name="Pause" Content="Pause" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" RenderTransformOrigin="-0.392,-0.478" Height="67" Width="80" FontSize="25" BorderBrush="{x:Null}" Background="{x:Null}" ToolTip="Pause the game...Weakling 🤡" FontWeight="Normal" Cursor="Hand" Click="Pause_Click"/>
     </Grid>
 </Window>

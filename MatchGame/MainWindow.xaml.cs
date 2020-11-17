@@ -10,9 +10,12 @@ namespace MatchGame
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    //Add different kinds of animals so the same ones don’t show up each time.
+    //Keep track of the player’s best time so he or she can try to beat it.
+    //Make the timer count down instead of counting up so the player has a limited amount of time.
     public partial class MainWindow : Window
     {
-        DispatcherTimer timer = new DispatcherTimer();
+        readonly DispatcherTimer timer = new DispatcherTimer();
         int tenthsOfSecondsElapsed;
         int matchesFound;
 
@@ -28,13 +31,12 @@ namespace MatchGame
         private void Timer_Tick(object sender, EventArgs e)
         {
             tenthsOfSecondsElapsed++;
-            timeTextBlock.Text = (tenthsOfSecondsElapsed / 10F).ToString("0.0s");
+            TimeTextBlock.Text = (tenthsOfSecondsElapsed / 10F).ToString("0.0s");
             if (matchesFound == 8)
             {
                 timer.Stop();
-                timeTextBlock.Text += " - Play again ? ";
+                TimeTextBlock.Text += " - Play again ? ";
             }
-
         }
 
         private void SetUpGame()
@@ -49,13 +51,13 @@ namespace MatchGame
                 "🐵", "🐵",
                 "🦄", "🦄",
                 "🐦", "🐦",
-            };
+            }; 
 
             Random random = new Random();
 
             foreach (TextBlock textBlock in mainGrid.Children.OfType<TextBlock>())
             {
-                if (textBlock.Name != "timeTextBlock")
+                if (textBlock.Name != "TimeTextBlock")
                 {
                     textBlock.Visibility = Visibility.Visible;
                     int index = random.Next(animalEmoji.Count);
@@ -95,12 +97,29 @@ namespace MatchGame
             }
         }
 
-        private void timeTextBlock_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void TimeTextBlock_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             if (matchesFound == 8)
             {
                 SetUpGame();
             }
         }
+
+        private void Pause_Click(object sender, RoutedEventArgs e)
+        {
+            switch (Pause.Content.ToString())
+            {
+                case "Pause":
+                    timer.Stop();
+                    Pause.Content = "Play";
+                    Pause.ToolTip = "💪";
+                    break;
+                case "Play":
+                    timer.Start();
+                    Pause.Content = "Pause";
+                    Pause.ToolTip = "Pause the game...weakling 🤡";
+                    break;
+            }
+        }
     }
-}
+};
